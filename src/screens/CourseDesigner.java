@@ -32,6 +32,7 @@ public class CourseDesigner implements Screen {
     private Stage stage;
 
     public CourseDesigner(Game g){
+
         game = g;
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -151,7 +152,7 @@ public class CourseDesigner implements Screen {
 
             myWriter.close();
             dispose();
-            game.setScreen(new CourseReader(game));
+
 
 
         } catch (IOException e) {
@@ -169,9 +170,10 @@ public class CourseDesigner implements Screen {
 
     @Override
     public void render(float delta) {
+        System.out.println("hi");
+
         Gdx.gl.glClearColor(0,0,0,0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         stage.act(delta);
         stage.draw();
     }
