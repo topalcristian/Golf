@@ -42,8 +42,8 @@ public class Golf extends Game {
 		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
 		cam = new PerspectiveCamera(90, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		cam.position.set(50, 50, 100);
-		cam.lookAt(50,50,0);
+		cam.position.set(25, 25, 30);
+		cam.lookAt(25,25,0);
 		cam.near = 1f;
 		cam.far = 300f;
 		cam.update();
@@ -56,16 +56,15 @@ public class Golf extends Game {
 		modelBuilder.begin();
 		modelBuilder.node().id = "box";
 		MeshPartBuilder mpb = modelBuilder.part("box", GL20.GL_LINES, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates | VertexAttributes.Usage.ColorPacked, new Material());
-		mpb.setColor(Color.RED);
+		mpb.setColor(Color.GREEN);
 
 		CourseReader CR = new CourseReader();
 
-		for (int y = 0; y < 100 - 1; y++) {
-			for (int x = 0; x < 100; x++) {
-
-				mpb.line(x , y, (int)CR.get_height().evaluate(new Vector2d(x,y)), x , (y + 1) , (int)CR.get_height().evaluate(new Vector2d(x,y)));
+			for (int y = -25; y < 25; y++) {
+			for (int x = -25; x < 25; x++) {
+				mpb.line(x , y, (int)CR.get_height().evaluate(new Vector2d(x,y)),x , (y + 1) , (int)CR.get_height().evaluate(new Vector2d(x,y+1)));
+				mpb.line(x , y, (int)CR.get_height().evaluate(new Vector2d(x,y)), x+1 , (y ) , (int)CR.get_height().evaluate(new Vector2d(x+1,y)));
 			}}
-
 
 		model = modelBuilder.end();
 		ModelInstance instance = new ModelInstance(model);
