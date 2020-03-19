@@ -16,8 +16,8 @@ public class CourseReader{
     private static double friction;
     private static double iniSpeed;
     private static double winArea;
-    private static double start[] = new double[2];
-    private static double goal[] = new double[2];
+    private static double[] start = new double[2];
+    private static double[] goal = new double[2];
     private static String heightFun;
     private static double[][] obstacle;
 

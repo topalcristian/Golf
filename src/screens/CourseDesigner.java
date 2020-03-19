@@ -97,13 +97,13 @@ public class CourseDesigner implements Screen {
         heightField.setSize(300, 40);
         heightField.setMessageText("formula");
         stage.addActor(heightField);
-
+/*
         obstacleField = new TextField("",skin);
         obstacleField.setPosition(300,750);
         obstacleField.setSize(300, 40);
         obstacleField.setMessageText("obstacle x y x y x y");
         stage.addActor(obstacleField);
-
+*/
         stage.addActor(btnCreate);
     }
 
@@ -145,8 +145,7 @@ public class CourseDesigner implements Screen {
             if (!heightField.getText().isEmpty())
             myWriter.write(heightField.getText());
             else
-                myWriter.write(" -0.01*x + 0.003*x^2 + 0.04 * y" + "\n");
-                myWriter.write(obstacleField.getText());
+                myWriter.write("-0.01*x + 0.003*x^2 + 0.04 * y" + "\n");
 
 
 
@@ -171,7 +170,6 @@ public class CourseDesigner implements Screen {
 
     @Override
     public void render(float delta) {
-        System.out.println("hi");
 
         Gdx.gl.glClearColor(0,0,0,0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

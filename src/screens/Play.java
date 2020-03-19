@@ -143,6 +143,11 @@ public class Play implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         if (updatePosTime<60&&updatePosTime!=0) {
             ourGolfBall.transform.translate((float) timeSpace.get((int) updatePosTime).get_x(), (float) timeSpace.get((int) updatePosTime).get_y(), (float) timeSpace.get((int) updatePosTime).get_z());
+            if(timeSpace.get((int) updatePosTime).get_x() > CR.get_flag_position().get_x()-CR.get_hole_tolerance() && (timeSpace.get((int) updatePosTime).get_x() < CR.get_flag_position().get_x()+CR.get_hole_tolerance())
+            && (timeSpace.get((int) updatePosTime).get_y() > CR.get_flag_position().get_y()-CR.get_hole_tolerance() && (timeSpace.get((int) updatePosTime).get_y() < CR.get_flag_position().get_y()+CR.get_hole_tolerance())))
+                if(timeSpace.get((int) updatePosTime+1).get_x() > CR.get_flag_position().get_x()-CR.get_hole_tolerance() && (timeSpace.get((int) updatePosTime+1).get_x() < CR.get_flag_position().get_x()+CR.get_hole_tolerance())
+                && (timeSpace.get((int) updatePosTime+1).get_y() > CR.get_flag_position().get_y()-CR.get_hole_tolerance() && (timeSpace.get((int) updatePosTime+1).get_y() < CR.get_flag_position().get_y()+CR.get_hole_tolerance())))
+                    game.setScreen(new Win(game));
         }
         modelBatch.begin(cam);
         modelBatch.render(instances, environment);

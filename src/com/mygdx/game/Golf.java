@@ -15,6 +15,8 @@ import com.badlogic.gdx.utils.Array;
 import screens.CourseDesigner;
 import screens.CourseReader;
 import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
+import screens.MainMenu;
+
 import java.util.ArrayList;
 
 
@@ -26,7 +28,7 @@ public class Golf extends Game {
 
 	@Override public void create() {
 
-		this.setScreen(new CourseDesigner(this));
+		this.setScreen(new MainMenu(this));
 
 
 	}
