@@ -152,6 +152,7 @@ public class CourseDesigner implements Screen {
 
             myWriter.close();
             dispose();
+            game.setScreen(new Play(game));
 
 
 
