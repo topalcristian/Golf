@@ -1,10 +1,9 @@
-import javafx.geometry.HorizontalDirection;
 
-public class Force extends Vector3D
+public class Force extends Vector2D
 {
-    public Force(double x, double y, double z)
+    public Force(double x, double y)
     {
-        super(x,y,z);
+        super(x,y);
     }
 
 }
